@@ -20,4 +20,17 @@ magalusRoutes.post(
 
 magalusRoutes.get("/", MagalusController.list);
 
+magalusRoutes.put(
+  "/",
+  celebrate({
+    [Segments.BODY]: {
+      matricula: Joi.number().required(),
+      nome: Joi.string().required(),
+      cargo: Joi.string(),
+      cd: Joi.number(),
+    },
+  }),
+  MagalusController.update
+);
+
 export default magalusRoutes;
