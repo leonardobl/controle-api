@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 
 import CreateMagaluService from "../services/CreateMagaluService";
+import DeleteMagaluService from "../services/DeleteMagaluService";
 import ListMagalusService from "../services/ListMagalusService";
 import UpdateMagaluService from "../services/UpdateMagaluService";
-import Magalus from "../typeorm/entity/MagalusEntity";
 
 class MagalusController {
   public async create(
@@ -24,6 +24,12 @@ class MagalusController {
     const data = { ...request.body };
     const magalu = await UpdateMagaluService.execute({ ...data });
     return response.status(200).json(magalu);
+  }
+
+  public async delete(request: Request, response: Response): Promise<Response> {
+    const matricula = Number(request.params.matricula);
+    await DeleteMagaluService.execute(matricula);
+    return response.status(200).json({});
   }
 }
 
