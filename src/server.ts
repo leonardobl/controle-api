@@ -1,12 +1,18 @@
-import "express-async-errors";
+import "reflect-metadata";
+import "./typeorm";
 import { errors } from "celebrate";
 import cors from "cors";
 import express, { NextFunction, Request, Response } from "express";
+import "express-async-errors";
 
 import routes from "./routes";
 import AppError from "./shared/errors/AppError";
 
 const app = express();
+app.use(express.json());
+app.use(cors());
+app.use(routes);
+app.use(errors());
 
 app.use(
   (error: Error, request: Request, response: Response, next: NextFunction) => {
@@ -22,13 +28,5 @@ app.use(
     });
   }
 );
-
-app.use(cors());
-app.use(express.json());
-app.use(routes);
-
-app.get("/", (req, res) => {
-  res.json({ message: "wellcome to index" });
-});
 
 export default app;

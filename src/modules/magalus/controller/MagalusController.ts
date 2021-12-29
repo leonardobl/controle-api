@@ -1,12 +1,13 @@
 import { Request, Response } from "express";
 
-interface IRequest {
-  request: Request;
-  response: Response;
-}
+import CreateMagaluService from "../services/CreateMagaluService";
 
 class MagalusController {
-  public async create({ resquest, response }: IRequest): Promise<Response> {}
+  public async create(resquest: Request, response: Response) {
+    const data = resquest.body;
+    const magalu = await CreateMagaluService.execute({ ...data });
+    return response.status(201).json(magalu);
+  }
 }
 
 export default new MagalusController();
