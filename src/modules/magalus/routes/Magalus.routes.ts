@@ -18,4 +18,6 @@ magalusRoutes.post(
   MagalusController.create
 );
 
+magalusRoutes.get("/", MagalusController.list);
+
 export default magalusRoutes;
