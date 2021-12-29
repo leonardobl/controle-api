@@ -33,6 +33,14 @@ magalusRoutes.put(
   MagalusController.update
 );
 
-magalusRoutes.delete("/:matricula");
+magalusRoutes.delete(
+  "/:matricula",
+  celebrate({
+    [Segments.PARAMS]: {
+      matricula: Joi.number().required(),
+    },
+  }),
+  MagalusController.delete
+);
 
 export default magalusRoutes;
