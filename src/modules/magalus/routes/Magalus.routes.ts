@@ -33,4 +33,6 @@ magalusRoutes.put(
   MagalusController.update
 );
 
+magalusRoutes.delete("/:matricula");
+
 export default magalusRoutes;
