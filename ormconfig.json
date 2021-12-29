@@ -1,0 +1,15 @@
+{
+  "name": "default",
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5432,
+  "username": "postgres",
+  "password": "docker",
+  "database": "controle_api",
+  "entities" : ["src/modules/**/typeorm/entity/*.ts"],
+  "migrations": ["src/typeorm/migrations/*.ts"],
+  "cli": {
+    "migrationsDir": "src/typeorm/migrations",
+    "entitiesDir": "src/modules/**/typeorm/entity"
+  }
+}
