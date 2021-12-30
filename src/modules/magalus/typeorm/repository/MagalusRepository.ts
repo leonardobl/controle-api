@@ -12,7 +12,7 @@ class MagalusRepository extends Repository<Magalus> {
   }
 
   public async findByName(nome: string): Promise<Magalus | undefined> {
-    const magalu = this.findOne({ where: { nome } });
+    const magalu = await this.findOne({ where: { nome } });
     return magalu;
   }
 }

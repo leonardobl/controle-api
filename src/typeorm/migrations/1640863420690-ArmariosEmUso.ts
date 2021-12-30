@@ -24,8 +24,13 @@ export class ArmariosEmUso1640863420690 implements MigrationInterface {
             type: "varchar",
           },
           {
-            name: "hora_inicial",
+            name: "numArmario",
+            type: "int",
+          },
+          {
+            name: "time",
             type: "timestamp",
+            isNullable: false,
           },
           {
             name: "created_at",

@@ -17,8 +17,11 @@ class ArmariosEmUso {
   @Column("varchar")
   nome: string;
 
+  @Column("int")
+  numArmario: number;
+
   @Column("date")
-  hora_inicial: Date;
+  time: Date;
 
   @CreateDateColumn()
   created_at: Date;
