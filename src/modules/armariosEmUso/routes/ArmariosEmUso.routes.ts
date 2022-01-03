@@ -20,4 +20,12 @@ armariosEmUsoRoutes.post(
 
 armariosEmUsoRoutes.get("/", ArmariosEmUsoController.list);
 
+armariosEmUsoRoutes.delete(
+  "/:numArmario",
+  celebrate({
+    [Segments.PARAMS]: { numArmario: Joi.number().required() },
+  }),
+  ArmariosEmUsoController.remove
+);
+
 export default armariosEmUsoRoutes;
