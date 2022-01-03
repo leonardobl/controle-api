@@ -1,4 +1,3 @@
-import { type } from "os";
 import {
   Column,
   CreateDateColumn,
@@ -25,11 +24,11 @@ class ChavesEntity {
   @Column("varchar")
   descricao: string;
 
-  @ManyToMany((type) => NiveisEntity, {
+  @ManyToMany(() => NiveisEntity, {
     eager: true,
     cascade: true,
   })
-  @JoinTable()
+  @JoinTable({ name: "chaves_niveis" })
   niveis: NiveisEntity[];
 
   @CreateDateColumn()
