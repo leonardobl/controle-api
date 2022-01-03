@@ -24,7 +24,7 @@ export class ArmariosEmUso1640863420690 implements MigrationInterface {
             type: "varchar",
           },
           {
-            name: "numArmario",
+            name: "numero",
             type: "int",
           },
           {

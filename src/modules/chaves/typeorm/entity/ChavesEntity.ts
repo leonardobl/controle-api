@@ -25,7 +25,10 @@ class ChavesEntity {
   @Column("varchar")
   descricao: string;
 
-  @ManyToMany(() => NiveisEntity, { eager: true, cascade: true })
+  @ManyToMany(() => NiveisEntity, {
+    eager: true,
+    cascade: true,
+  })
   @JoinColumn()
   niveis: NiveisEntity[];
 

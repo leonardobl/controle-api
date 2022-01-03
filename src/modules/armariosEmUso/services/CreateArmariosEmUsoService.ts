@@ -7,7 +7,7 @@ import ArmarioEmUsoRepository from "../typeorm/repository/ArmarioEmUsoRepository
 interface IRequest {
   identificacao: string;
   nome?: string;
-  numArmario: number;
+  numero: number;
   time: Date;
 }
 
@@ -16,18 +16,18 @@ class CreateArmariosEmUsoService {
     nome,
     identificacao,
     time,
-    numArmario,
+    numero,
   }: IRequest): Promise<ArmariosEmUso> {
     const armariosEmUsoRepository = getCustomRepository(ArmarioEmUsoRepository);
     const armamarioEmUsoAlreadyExists =
-      await armariosEmUsoRepository.findByNumArmario(numArmario);
+      await armariosEmUsoRepository.findByNumArmario(numero);
     if (armamarioEmUsoAlreadyExists) {
       throw new AppError("This armario already in use");
     }
     const armarioEmUso = armariosEmUsoRepository.create({
       identificacao,
       nome,
-      numArmario,
+      numero,
       time,
     });
 

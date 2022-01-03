@@ -5,9 +5,9 @@ import ArmariosEmUso from "../entity/ArmariosEmUsoEntity";
 @EntityRepository(ArmariosEmUso)
 class ArmarioEmUsoRepository extends Repository<ArmariosEmUso> {
   public async findByNumArmario(
-    numArmario: number
+    numero: number
   ): Promise<ArmariosEmUso | undefined> {
-    const armarioEmUso = await this.findOne({ where: { numArmario } });
+    const armarioEmUso = await this.findOne({ where: { numero } });
     return armarioEmUso;
   }
 }

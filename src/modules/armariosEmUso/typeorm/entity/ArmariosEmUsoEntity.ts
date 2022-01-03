@@ -18,7 +18,7 @@ class ArmariosEmUso {
   nome: string;
 
   @Column("int")
-  numArmario: number;
+  numero: number;
 
   @Column("date")
   time: Date;
