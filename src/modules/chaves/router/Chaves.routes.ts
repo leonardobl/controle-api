@@ -7,5 +7,6 @@ const chavesController = new ChavesController();
 
 chavesRoutes.post("/", chavesController.create);
 chavesRoutes.get("/", chavesController.index);
+chavesRoutes.patch("/", chavesController.update);
 
 export default chavesRoutes;
