@@ -2,8 +2,6 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
-  ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
@@ -24,8 +22,6 @@ class NiveisEntity {
   @Column("varchar")
   descricao: string;
 
-  @ManyToMany(() => ChavesEntity, { eager: true, cascade: true })
-  @JoinColumn()
   chaves: ChavesEntity[];
 
   @CreateDateColumn()

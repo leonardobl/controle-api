@@ -3,7 +3,7 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
+  JoinTable,
   ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -25,11 +25,11 @@ class ChavesEntity {
   @Column("varchar")
   descricao: string;
 
-  @ManyToMany(() => NiveisEntity, {
+  @ManyToMany((type) => NiveisEntity, {
     eager: true,
     cascade: true,
   })
-  @JoinColumn()
+  @JoinTable()
   niveis: NiveisEntity[];
 
   @CreateDateColumn()
