@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 
 import CreateChaveService from "../services/CreateChaveService";
 import ListChavesService from "../services/ListChavesService";
+import RemoveChaveService from "../services/RemoveChaveService";
 import UpdateChavesService from "../services/UpdateChavesService";
 
 class ChavesController {
@@ -19,6 +20,12 @@ class ChavesController {
   async update(request: Request, response: Response): Promise<Response> {
     const chave = await UpdateChavesService.execute(request.body);
     return response.status(200).json(chave);
+  }
+
+  async remove(request: Request, response: Response) {
+    const numero = Number(request.params.numero);
+    await RemoveChaveService.execute(numero);
+    return response.json({});
   }
 }
 
