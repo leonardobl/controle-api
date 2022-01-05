@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import CreateNivelService from "../services/CreateNivelService";
 import ListNiveisService from "../services/ListNiveisService";
 import RemoveNivelService from "../services/RemoveNivelService";
+import UpdateNivelService from "../services/UpdateNivelService";
 
 class NiveisController {
   async index(request: Request, response: Response): Promise<Response> {
