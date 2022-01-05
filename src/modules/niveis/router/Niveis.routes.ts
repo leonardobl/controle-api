@@ -17,4 +17,25 @@ niveisRoutes.post(
   NiveisController.create
 );
 
+niveisRoutes.delete(
+  "/:numero",
+  celebrate({
+    [Segments.PARAMS]: {
+      numero: Joi.number().required(),
+    },
+  }),
+  NiveisController.remove
+);
+
+niveisRoutes.patch(
+  "/",
+  celebrate({
+    [Segments.BODY]: {
+      numero: Joi.number().required(),
+      nome: Joi.string().required(),
+    },
+  }),
+  NiveisController.update
+);
+
 export default niveisRoutes;
