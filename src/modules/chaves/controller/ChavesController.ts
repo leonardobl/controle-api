@@ -13,7 +13,11 @@ class ChavesController {
 
   async create(request: Request, response: Response): Promise<Response> {
     const { nome, numero, descricao } = request.body;
-    const chave = await CreateChaveService.execute({ nome, numero, descricao });
+    const chave = await CreateChaveService.execute({
+      nome,
+      numero,
+      descricao,
+    });
     return response.status(201).json(chave);
   }
 

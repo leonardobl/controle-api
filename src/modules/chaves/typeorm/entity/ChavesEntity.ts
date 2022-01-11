@@ -24,11 +24,7 @@ class ChavesEntity {
   @Column("varchar")
   descricao: string;
 
-  @ManyToMany(() => NiveisEntity, {
-    eager: true,
-    cascade: true,
-  })
-  @JoinTable({ name: "chaves_niveis" })
+  @ManyToMany(() => NiveisEntity)
   niveis: NiveisEntity[];
 
   @CreateDateColumn()

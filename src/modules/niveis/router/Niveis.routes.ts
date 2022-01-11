@@ -6,12 +6,14 @@ import NiveisController from "../controller/NiveisController";
 const niveisRoutes = Router();
 
 niveisRoutes.get("/", NiveisController.index);
+
 niveisRoutes.post(
   "/",
   celebrate({
     [Segments.BODY]: {
       nome: Joi.string().required(),
       numero: Joi.number().required(),
+      descricao: Joi.string(),
     },
   }),
   NiveisController.create
@@ -32,7 +34,8 @@ niveisRoutes.patch(
   celebrate({
     [Segments.BODY]: {
       numero: Joi.number().required(),
-      nome: Joi.string().required(),
+      nome: Joi.string(),
+      idChave: Joi.array(),
     },
   }),
   NiveisController.update

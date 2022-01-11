@@ -17,6 +17,7 @@ class CreateNivelService {
     if (nivelExists) {
       throw new AppError("This nivel already exists");
     }
+
     const nivel = await repository.create({ nome, numero, descricao });
     await repository.save(nivel);
     return nivel;

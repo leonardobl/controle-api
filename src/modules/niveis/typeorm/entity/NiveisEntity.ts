@@ -2,8 +2,10 @@ import {
   Column,
   CreateDateColumn,
   Entity,
+  ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
+  JoinTable,
 } from "typeorm";
 
 import ChavesEntity from "../../../chaves/typeorm/entity/ChavesEntity";
@@ -19,9 +21,11 @@ class NiveisEntity {
   @Column("varchar")
   nome: string;
 
-  @Column("varchar")
+  @Column({ nullable: true, type: "varchar" })
   descricao: string;
 
+  @ManyToMany(() => ChavesEntity, { eager: true })
+  @JoinTable({ name: "chaves_niveis" })
   chaves: ChavesEntity[];
 
   @CreateDateColumn()

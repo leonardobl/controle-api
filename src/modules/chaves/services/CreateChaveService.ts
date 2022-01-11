@@ -8,6 +8,7 @@ interface IRequest {
   nome: string;
   numero: number;
   descricao: string;
+  idNivel?: number;
 }
 
 class CreateChaveService {
@@ -18,7 +19,7 @@ class CreateChaveService {
       throw new AppError("Chave already exists");
     }
     const chave = repository.create({ nome, numero, descricao });
-    await repository.save(chave);
+    repository.save(chave);
     return chave;
   }
 }
